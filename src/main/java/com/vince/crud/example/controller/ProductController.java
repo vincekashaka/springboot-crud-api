@@ -16,12 +16,12 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/addProduct")
-    public Product addProduct(@PathVariable Product product){
+    public Product addProduct(@RequestBody Product product){
         return productService.saveProduct(product);
     }
 
     @PostMapping("/addProducts")
-    public List<Product> addProducts(List<Product> productList){
+    public List<Product> addProducts(@RequestBody List<Product> productList){
         return productService.saveProducts(productList);
     }
 
@@ -49,7 +49,7 @@ public class ProductController {
     }
 
     // delete
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteProduct(@PathVariable int id){
         return productService.deleteProduct(id);
     }
